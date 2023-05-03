@@ -12,7 +12,7 @@ class MyTestCase(unittest.TestCase):
         self.tree.add(8)
 
     def test_find(self):
-        self.assertEqual(self.tree.find(12), None)
+        self.assertNotEqual(self.tree.find(12), None)
         self.assertEqual(self.tree.find(3).data, 3)
 
 
