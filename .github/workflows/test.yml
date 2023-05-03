@@ -5,7 +5,7 @@ on:
 
 jobs:
   run:
-    name: 🚀 Run
+    name: 🚀 Runff
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout
