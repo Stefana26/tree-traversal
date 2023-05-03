@@ -1,4 +1,19 @@
 from node import Node
+import unittest
+
+
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        self.tree = Tree()
+
+        self.tree.add(3)
+        self.tree.add(4)
+        self.tree.add(0)
+        self.tree.add(8)
+
+    def test_find(self):
+        self.assertEqual(self.tree.find(12), None)
+        self.assertEqual(self.tree.find(3).data, 3)
 
 
 class Tree:
@@ -63,15 +78,24 @@ class Tree:
 
     def deleteTree(self):
         # TODO 1
+        """"
+        Method to delete a Tree tha you created
+        """
         self.root = None
 
     def printTree(self):
         # TODO 1
+        """"
+        Method that prints a Tree
+        """
         if self.root is not None:
             self._printInorderTree(self.root)
 
     def _printInorderTree(self, node):
         # TODO 1
+        """"
+        Method that prints a Tree inorder
+        """
         if node is not None:
             self._printInorderTree(node.left)
             print(str(node.data) + ' ')
@@ -79,10 +103,25 @@ class Tree:
 
     def _printPreorderTree(self, node):
         # TODO 2
+        """"
+        Method that prints a Tree preorder
+        """
+        if node is not None:
+            print(str(node.data) + ' ')
+            self._printPreorderTree(node.left)
+            self._printPreorderTree(node.right)
         pass
 
     def _printPostorderTree(self, node):
         # TODO 2
-        pass
+        """"
+        Method that prints a Tree postorder
+        """
+        # if root is None return
+        if node is not None:
+            self._printPostorderTree(node.left)
+            self._printPostorderTree(node.right)
+            print(str(node.data) + ' ')
+    pass
 
 
