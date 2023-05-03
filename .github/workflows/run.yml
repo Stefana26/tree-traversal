@@ -18,7 +18,7 @@ jobs:
     - name: Notify about failure
       if: ${{ failure() }}
       run: |
-        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} --header 'Content-Type: text/plain' -d "fail"
+        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} --header 'Content-Type: application/x-www-form-urlencoded' -d "fail"
 
 
 
