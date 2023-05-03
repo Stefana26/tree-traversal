@@ -18,7 +18,7 @@ jobs:
     - name: Notify about failure
       if: ${{ failure() }}
       run: |
-        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} --header 'Content-Type: application/json' -d "Picat unit test"
+        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} --header 'Content-Type: application' -d "Picat unit test"
 
 
 
