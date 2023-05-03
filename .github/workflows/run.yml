@@ -18,7 +18,10 @@ jobs:
     - name: Notify about failure
       if: ${{ failure() }}
       run: |
-        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} -d "Picat unit test"
+        cat << EOF > message.json
+        {"@type":"MessageCard","@context":"https://schema.org/extensions","summary":"Pipeline failed!","themeColor":"ff0000","title":"$GITHUB_REPOSITORY pipeline failed 💢!"}
+        EOF
+        curl -X POST ${{ secrets.TEAMS_WEBHOOK }} --header 'Content-Type: application/json' -d @message.json
 
 
 
